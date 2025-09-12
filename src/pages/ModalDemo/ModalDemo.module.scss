@@ -1,0 +1,14 @@
+.modalDemoBtn {
+	padding: 8px 20px;
+	margin-top: 20px;
+	background: orange;
+	color: white;
+	font-weight: 500;
+	border-radius: 6px;
+	border: none;
+	cursor: pointer;
+
+	&:hover {
+		opacity: 0.9;
+	}
+}

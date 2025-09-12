@@ -1,0 +1,37 @@
+.notifiContainer {
+	gap: 15px;
+	position: absolute;
+	top: 25px;
+	width: 400px;
+	height: 550px;
+	overflow-y: auto;
+	right: 0;
+	padding: 20px 27px;
+	background: #fff;
+	border: 2px solid #f1eeee;
+	box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+	border-radius: 8px;
+
+	.notifiHeader {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+
+		.notifiMark {
+			margin-left: auto;
+			padding: 8px;
+			border-radius: 4px;
+			color: #f05123;
+			background: transparent;
+			font-size: 14px;
+			cursor: pointer;
+		}
+	}
+}
+
+.notifiList {
+	margin-top: 15px;
+	display: flex;
+	flex-direction: column;
+	gap: 22px;
+}

@@ -1,0 +1,45 @@
+.userMenuContainer {
+	display: flex;
+	flex-direction: column;
+	gap: 15px;
+	position: absolute;
+	top: 40px;
+	right: 0;
+	width: 230px;
+	padding: 20px;
+	background: #fff;
+	border: 2px solid #f1eeee;
+	box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+	border-radius: 8px;
+
+	.userMenuInfo {
+		display: flex;
+		align-items: center;
+		gap: 16px;
+
+		.userMenuName {
+			font-size: 16px;
+			font-weight: 600;
+			color: #292929;
+		}
+
+		.userMenuId {
+			margin-top: 8px;
+			font-size: 14px;
+			color: #757575;
+		}
+	}
+
+	.userMenuLink {
+		font-size: 14px;
+		color: #666;
+		display: block;
+		padding: 10px 0;
+		cursor: pointer;
+		text-decoration: none;
+
+		&:hover {
+			color: #292929;
+		}
+	}
+}

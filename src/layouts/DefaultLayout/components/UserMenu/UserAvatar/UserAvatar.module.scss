@@ -1,0 +1,10 @@
+.userAvatar {
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: 4px;
+	position: relative;
+	background: linear-gradient(180deg, #ffd900, #b45264 93.68%);
+	cursor: pointer;
+}

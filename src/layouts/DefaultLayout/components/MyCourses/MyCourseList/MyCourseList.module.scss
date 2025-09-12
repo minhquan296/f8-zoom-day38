@@ -1,0 +1,71 @@
+.myCourseContainer {
+	position: absolute;
+	right: 16px;
+	width: 400px;
+	max-height: 550px;
+	overflow-y: auto;
+	background: #fff;
+	padding: 20px;
+	border: 2px solid #f1eeee;
+	box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+	border-radius: 8px;
+
+	.myCourseHeader {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		margin-bottom: 5px;
+	}
+
+	.myCourseTitle {
+		font-size: 18px;
+		font-weight: 600;
+	}
+
+	.myCourseContainerShowAll {
+		font-size: 14px;
+		margin-left: auto;
+		color: #f05123;
+		padding: 8px;
+		border-radius: 4px;
+		text-decoration: none;
+	}
+}
+
+.myCourseItemContainer {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 10px 6px;
+	border-radius: 8px;
+	cursor: pointer;
+
+	&:hover {
+		background: #f4f4f4;
+	}
+
+	.myCourseItemImg {
+		width: 120px;
+		min-height: 67px;
+		display: block;
+		border-radius: 8px;
+		background-color: #ebebeb;
+		text-align: center;
+		line-height: 67px;
+	}
+
+	.myCourseItemTitle {
+		font-size: 16px;
+		color: #333;
+	}
+
+	.myCourseItemStart {
+		font-size: 14px;
+		font-weight: 500;
+		color: #f05123;
+		margin-top: 6px;
+		cursor: pointer;
+		display: block;
+		background-color: transparent;
+	}
+}
