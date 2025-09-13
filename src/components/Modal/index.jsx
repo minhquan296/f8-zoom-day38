@@ -1,40 +1,42 @@
 import classNames from "classnames";
 import styles from "./Modal.module.scss";
 import PropTypes from "prop-types";
-import { useEffect } from "react";
+import { useCallback, useEffect } from "react";
 
 const Modal = ({
 	children,
 	isOpen,
-	onAfterOpen,
-	onAfterClose,
+	onAfterOpen = () => {},
+	onAfterClose = () => {},
 	closeTimeoutMS,
 	onRequestClose,
 	overlayClassName,
 	className,
 	bodyOpenClassName,
 	htmlOpenClassName,
-	shouldCloseOnOverlayClick,
-	shouldCloseOnEsc,
+	shouldCloseOnOverlayClick = false,
+	shouldCloseOnEsc = false,
 }) => {
-	// eslint-disable-next-line react-hooks/exhaustive-deps
-	const addModalOpenClasses = () => {
+	console.log({ shouldCloseOnEsc });
+
+	const addModalOpenClasses = useCallback(() => {
 		document.body.classList.add(bodyOpenClassName);
 		document.documentElement.classList.add(htmlOpenClassName);
-	};
+	}, [bodyOpenClassName, htmlOpenClassName]);
 
-	// eslint-disable-next-line react-hooks/exhaustive-deps
-	const removeModalOpenClasses = () => {
+	const removeModalOpenClasses = useCallback(() => {
 		document.body.classList.remove(bodyOpenClassName);
 		document.documentElement.classList.remove(htmlOpenClassName);
-	};
+	}, [bodyOpenClassName, htmlOpenClassName]);
 
-	// eslint-disable-next-line react-hooks/exhaustive-deps
-	const handleClickEscape = (e) => {
-		if (e.code === "Escape" && shouldCloseOnEsc) {
-			return onRequestClose();
-		}
-	};
+	const handleClickEscape = useCallback(
+		(e) => {
+			if (e.code === "Escape" && shouldCloseOnEsc) {
+				return onRequestClose();
+			}
+		},
+		[shouldCloseOnEsc, onRequestClose]
+	);
 
 	const handleClickOverlay = () => {
 		if (shouldCloseOnOverlayClick) {
@@ -59,15 +61,24 @@ const Modal = ({
 
 	useEffect(() => {
 		document.addEventListener("keydown", handleClickEscape);
-		document.removeEventListener("keydown", handleClickEscape);
+		return () => {
+			document.removeEventListener("keydown", handleClickEscape);
+		};
 	}, [handleClickEscape]);
 
 	if (!isOpen) return null;
 
 	return (
-		<div className={classNames(styles.modalOverlay, overlayClassName)} onClick={handleClickOverlay}>
+		<div
+			className={classNames(styles.modalOverlay, overlayClassName, {
+				[styles.close]: !isOpen,
+			})}
+			onClick={handleClickOverlay}
+		>
 			<div
-				className={classNames(styles.modalContent, className)}
+				className={classNames(styles.modalContent, className, {
+					[styles.close]: !isOpen,
+				})}
 				onClick={(e) => {
 					e.stopPropagation();
 				}}

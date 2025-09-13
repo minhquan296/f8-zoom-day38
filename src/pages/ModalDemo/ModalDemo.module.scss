@@ -1,14 +1,17 @@
-.modalDemoBtn {
-	padding: 8px 20px;
-	margin-top: 20px;
-	background: orange;
-	color: white;
-	font-weight: 500;
+.modalAction {
+	padding: 15px;
 	border-radius: 6px;
-	border: none;
+	border: 1px solid;
+	background-color: #000000;
+	color: #fff;
+	font-weight: 500;
 	cursor: pointer;
 
 	&:hover {
 		opacity: 0.9;
 	}
+}
+
+.customModal:global(.modalContent) {
+	background: blue;
 }

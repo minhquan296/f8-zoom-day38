@@ -11,7 +11,7 @@ const AppRoutes = () => {
 		<Router>
 			<Routes>
 				<Route element={<DefaultLayOut />}>
-					<Route path="/" element={<Profile />} />
+					<Route path="/" element={<ModalDemo />} />
 					<Route path="/modal-demo" element={<ModalDemo />} />
 					<Route path="/profile " element={<Profile />} />
 					<Route path="/scroll-demo" element={<ScrollDemo />} />
