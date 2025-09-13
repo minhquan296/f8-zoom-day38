@@ -8,23 +8,25 @@ const ModalAnimation = () => {
 	return (
 		<div>
 			<button
-				className={styles.modalAction}
+				className={styles.modalActionOpen}
 				onClick={() => {
-					setIsModalOpen((prev) => !prev);
+					setIsModalOpen(true);
 				}}
 			>
 				Modal với Animation
 			</button>
 			<Modal
+				setIsModalOpen={setIsModalOpen}
 				isOpen={isModalOpen}
 				closeTimeoutMS={300}
 				bodyOpenClassName="body-class"
 				htmlOpenClassName="html-class"
+				shouldCloseOnOverlayClick
+				shouldCloseOnEsc
 			>
 				<div>
 					<h1>Modal with animation </h1>
 					<p>Hello this is modal with animation</p>
-					<button onClick={() => setIsModalOpen(false)}>close</button>
 				</div>
 			</Modal>
 		</div>

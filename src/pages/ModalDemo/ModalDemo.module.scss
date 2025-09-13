@@ -1,4 +1,4 @@
-.modalAction {
+.modalActionOpen {
 	padding: 15px;
 	border-radius: 6px;
 	border: 1px solid;
@@ -12,6 +12,8 @@
 	}
 }
 
-.customModal:global(.modalContent) {
-	background: blue;
+.modalActionClose {
+	margin-top: 5px;
+	padding: 8px 15px;
+	cursor: pointer;
 }

@@ -5,6 +5,9 @@ const Navigation = () => {
 	return (
 		<ul className={styles.wrapperNav}>
 			<li className={styles.wrapperNavItem}>
+				<Link to="/">Home</Link>
+			</li>
+			<li className={styles.wrapperNavItem}>
 				<Link to="/modal-demo">ModalDemo</Link>
 			</li>
 			<li className={styles.wrapperNavItem}>

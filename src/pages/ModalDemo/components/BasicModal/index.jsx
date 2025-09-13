@@ -8,27 +8,29 @@ const BasicModal = () => {
 	return (
 		<div>
 			<button
-				className={styles.modalAction}
+				className={styles.modalActionOpen}
 				onClick={() => {
 					setIsModalOpen((prev) => !prev);
 				}}
 			>
 				Basic Modal
 			</button>
-			<Modal
-				isOpen={isModalOpen}
-				shouldCloseOnOverlayClick
-				onRequestClose={() => setIsModalOpen(false)}
-				htmlOpenClassName="html-class"
-				bodyOpenClassName="body-class"
-				shouldCloseOnEsc
-			>
-				<div>
-					<h1>Basic Modal </h1>
-					<p>Hello this is basic modal</p>
-					<button onClick={() => setIsModalOpen(false)}>close</button>
-				</div>
-			</Modal>
+			{isModalOpen && (
+				<Modal
+					setIsModalOpen={setIsModalOpen}
+					isOpen={isModalOpen}
+					shouldCloseOnOverlayClick
+					onRequestClose={() => setIsModalOpen(false)}
+					htmlOpenClassName="html-class"
+					bodyOpenClassName="body-class"
+					shouldCloseOnEsc
+				>
+					<div>
+						<h1>Basic Modal </h1>
+						<p>Hello this is basic modal</p>
+					</div>
+				</Modal>
+			)}
 		</div>
 	);
 };

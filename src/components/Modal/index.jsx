@@ -1,15 +1,15 @@
 import classNames from "classnames";
 import styles from "./Modal.module.scss";
 import PropTypes from "prop-types";
-import { useCallback, useEffect } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 const Modal = ({
 	children,
-	isOpen,
+	isOpen = false,
+	setIsModalOpen,
 	onAfterOpen = () => {},
 	onAfterClose = () => {},
 	closeTimeoutMS,
-	onRequestClose,
 	overlayClassName,
 	className,
 	bodyOpenClassName,
@@ -17,6 +17,16 @@ const Modal = ({
 	shouldCloseOnOverlayClick = false,
 	shouldCloseOnEsc = false,
 }) => {
+	const [isClosing, setIsClosing] = useState(false);
+
+	const handleClose = useCallback(() => {
+		setIsClosing(true);
+		setTimeout(() => {
+			setIsModalOpen(false);
+			setIsClosing(false);
+		}, closeTimeoutMS);
+	}, [closeTimeoutMS, setIsModalOpen]);
+
 	const addModalOpenClasses = useCallback(() => {
 		document.body.classList.add(bodyOpenClassName);
 		document.documentElement.classList.add(htmlOpenClassName);
@@ -30,15 +40,15 @@ const Modal = ({
 	const handleClickEscape = useCallback(
 		(e) => {
 			if (e.code === "Escape" && shouldCloseOnEsc) {
-				return onRequestClose();
+				return handleClose();
 			}
 		},
-		[shouldCloseOnEsc, onRequestClose]
+		[shouldCloseOnEsc, handleClose]
 	);
 
 	const handleClickOverlay = () => {
 		if (shouldCloseOnOverlayClick) {
-			return onRequestClose();
+			return handleClose();
 		}
 	};
 
@@ -64,33 +74,37 @@ const Modal = ({
 		};
 	}, [handleClickEscape]);
 
-	console.log({ isOpen });
-
-	// useEffect(() => {
-	// 	const timeId = setTimeout(() => {
-	// 		if (!isOpen) {
-	// 		}
-	// 	}, closeTimeoutMS);
-	// 	return () => {
-	// 		clearTimeout(timeId);
-	// 	};
-	// }, [isOpen, closeTimeoutMS]);
-
 	if (!isOpen) {
 		return null;
 	}
 
 	return (
-		<div className={classNames(styles.modalOverlay, overlayClassName)} onClick={handleClickOverlay}>
+		<div
+			className={classNames(
+				styles.modalOverlay,
+				{
+					[styles.close]: isClosing,
+				},
+				overlayClassName
+			)}
+			onClick={handleClickOverlay}
+		>
 			<div
-				className={classNames(styles.modalContent, className, {
-					[styles.close]: !isOpen,
-				})}
+				className={classNames(
+					styles.modalContent,
+					{
+						[styles.close]: isClosing,
+					},
+					className
+				)}
 				onClick={(e) => {
 					e.stopPropagation();
 				}}
 			>
 				{children}
+				<button className={styles.modalBtn} onClick={handleClose}>
+					close
+				</button>
 			</div>
 		</div>
 	);
@@ -109,6 +123,7 @@ Modal.propTypes = {
 	htmlOpenClassName: PropTypes.string,
 	shouldCloseOnOverlayClick: PropTypes.bool,
 	shouldCloseOnEsc: PropTypes.bool,
+	setIsModalOpen: PropTypes.func,
 };
 
 export default Modal;

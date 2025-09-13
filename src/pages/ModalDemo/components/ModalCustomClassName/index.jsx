@@ -7,7 +7,7 @@ const ModalCustomClassName = () => {
 	return (
 		<div>
 			<button
-				className={styles.modalAction}
+				className={styles.modalActionOpen}
 				onClick={() => {
 					setIsModalOpen((prev) => !prev);
 				}}
@@ -15,15 +15,16 @@ const ModalCustomClassName = () => {
 				Modal với custom className
 			</button>
 			<Modal
+				setIsModalOpen={setIsModalOpen}
 				isOpen={isModalOpen}
 				className={styles.customModal}
 				bodyOpenClassName="body-class"
 				htmlOpenClassName="html-class"
+				closeTimeoutMS={300}
 			>
 				<div>
 					<h1>Modal CustomClassName </h1>
 					<p>Hello this is Modal CusTomClassName</p>
-					<button onClick={() => setIsModalOpen(false)}>close</button>
 				</div>
 			</Modal>
 		</div>

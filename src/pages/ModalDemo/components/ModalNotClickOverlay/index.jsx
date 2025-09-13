@@ -4,10 +4,13 @@ import styles from "../../ModalDemo.module.scss";
 
 const ModalNotClickOverlay = () => {
 	const [isModalOpen, setIsModalOpen] = useState(false);
+
+	console.log({ isModalOpen });
+
 	return (
 		<div>
 			<button
-				className={styles.modalAction}
+				className={styles.modalActionOpen}
 				onClick={() => {
 					setIsModalOpen((prev) => !prev);
 				}}
@@ -15,8 +18,10 @@ const ModalNotClickOverlay = () => {
 				Modal không đóng khi click Overlay
 			</button>
 			<Modal
+				setIsModalOpen={setIsModalOpen}
 				isOpen={isModalOpen}
 				shouldCloseOnEsc
+				closeTimeoutMS={300}
 				onRequestClose={() => setIsModalOpen(false)}
 				bodyOpenClassName="body-class"
 				htmlOpenClassName="html-class"
@@ -24,7 +29,6 @@ const ModalNotClickOverlay = () => {
 				<div>
 					<h1>Modal Overlay</h1>
 					<p>Hello this is Modal Overlay</p>
-					<button onClick={() => setIsModalOpen(false)}>close</button>
 				</div>
 			</Modal>
 		</div>

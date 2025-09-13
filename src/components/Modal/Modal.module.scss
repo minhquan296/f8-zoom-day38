@@ -17,11 +17,39 @@
 		}
 	}
 
+	&.close {
+		animation: fadeOut 0.3s ease forwards;
+
+		@keyframes fadeOut {
+			from {
+				opacity: 1;
+			}
+			to {
+				opacity: 0;
+			}
+		}
+	}
+
 	.modalContent {
 		background: #fff;
 		width: 400px;
 		padding: 16px 20px;
 		animation: slideUp 0.3s ease forwards;
+
+		&.close {
+			animation: slideDown 0.3s ease forwards;
+
+			@keyframes slideDown {
+				from {
+					transform: translateY(0);
+					opacity: 1;
+				}
+				to {
+					transform: translateY(50px);
+					opacity: 0;
+				}
+			}
+		}
 
 		@keyframes slideUp {
 			from {
@@ -35,5 +63,11 @@
 				scale: 1;
 			}
 		}
+	}
+
+	.modalBtn {
+		margin-top: 10px;
+		padding: 8px 15px;
+		cursor: pointer;
 	}
 }
