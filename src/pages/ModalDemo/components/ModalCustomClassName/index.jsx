@@ -14,7 +14,12 @@ const ModalCustomClassName = () => {
 			>
 				Modal với custom className
 			</button>
-			<Modal isOpen={isModalOpen} className={styles.customModal}>
+			<Modal
+				isOpen={isModalOpen}
+				className={styles.customModal}
+				bodyOpenClassName="body-class"
+				htmlOpenClassName="html-class"
+			>
 				<div>
 					<h1>Modal CustomClassName </h1>
 					<p>Hello this is Modal CusTomClassName</p>

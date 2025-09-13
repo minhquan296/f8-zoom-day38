@@ -7,7 +7,7 @@ import ModalNotClickOverlay from "./components/ModalNotClickOverlay";
 
 const ModalDemo = () => {
 	return (
-		<div style={{ margin: "20px" }}>
+		<div style={{ margin: "20px", display: "flex", alignItems: "center", gap: "10px" }}>
 			<BasicModal />
 			<ModalAnimation />
 			<ModalCallback />

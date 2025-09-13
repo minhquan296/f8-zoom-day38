@@ -14,7 +14,13 @@ const ModalNotClickOverlay = () => {
 			>
 				Modal không đóng khi click Overlay
 			</button>
-			<Modal isOpen={isModalOpen} shouldCloseOnEsc onRequestClose={() => setIsModalOpen(false)}>
+			<Modal
+				isOpen={isModalOpen}
+				shouldCloseOnEsc
+				onRequestClose={() => setIsModalOpen(false)}
+				bodyOpenClassName="body-class"
+				htmlOpenClassName="html-class"
+			>
 				<div>
 					<h1>Modal Overlay</h1>
 					<p>Hello this is Modal Overlay</p>

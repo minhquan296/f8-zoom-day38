@@ -14,7 +14,13 @@ const ModalNotClickESC = () => {
 			>
 				Modal không đóng khi nhấn Esc
 			</button>
-			<Modal isOpen={isModalOpen} shouldCloseOnOverlayClick onRequestClose={() => setIsModalOpen(false)}>
+			<Modal
+				isOpen={isModalOpen}
+				shouldCloseOnOverlayClick
+				onRequestClose={() => setIsModalOpen(false)}
+				bodyOpenClassName="body-class"
+				htmlOpenClassName="html-class"
+			>
 				<div>
 					<h1>Modal ESC</h1>
 					<p>Hello this is Modal ESC</p>

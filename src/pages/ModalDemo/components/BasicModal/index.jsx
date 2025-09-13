@@ -19,8 +19,8 @@ const BasicModal = () => {
 				isOpen={isModalOpen}
 				shouldCloseOnOverlayClick
 				onRequestClose={() => setIsModalOpen(false)}
-				htmlOpenClassName
-				bodyOpenClassName
+				htmlOpenClassName="html-class"
+				bodyOpenClassName="body-class"
 				shouldCloseOnEsc
 			>
 				<div>

@@ -18,6 +18,8 @@ const ModalCallback = () => {
 				isOpen={isModalOpen}
 				onAfterOpen={() => console.log("Modal callback opened")}
 				onAfterClose={() => console.log("Modal callback closed")}
+				bodyOpenClassName="body-class"
+				htmlOpenClassName="html-class"
 			>
 				<div>
 					<h1>Modal callback </h1>

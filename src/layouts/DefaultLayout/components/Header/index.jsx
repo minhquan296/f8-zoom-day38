@@ -11,7 +11,11 @@ const Header = () => {
 			{/* Logo */}
 			<Link to="/" style={{ textDecoration: "none", color: "black" }}>
 				<div className={styles.headerLogo}>
-					<img src="./src/assets/images/f8-logo.png" alt="" className={styles.headerIcon} />
+					<img
+						src="https://fullstack.edu.vn/assets/f8-icon-lV2rGpF0.png"
+						alt=""
+						className={styles.headerIcon}
+					/>
 					<p className={styles.headerTitle}>Học Lập Trình Để Đi Làm</p>
 				</div>
 			</Link>
