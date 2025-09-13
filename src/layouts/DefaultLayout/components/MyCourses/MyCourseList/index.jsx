@@ -1,4 +1,4 @@
-// import Wrapper from "../../../../../components/Wrapper";
+import Wrapper from "../../../../../components/Wrapper";
 import { useEffect, useRef } from "react";
 import MyCourseItem from "../MyCourseItem";
 import styles from "./MyCourseList.module.scss";
@@ -62,19 +62,19 @@ const MyCourseList = ({ onHandleClick }) => {
 	}, [onHandleClick]);
 
 	return (
-		// <Wrapper>
-		<div ref={menuRef} className={styles.myCourseContainer}>
-			<div className={styles.myCourseHeader}>
-				<p className={styles.myCourseTitle}>Khóa học của tôi</p>
-				<a href="" className={styles.myCourseContainerShowAll}>
-					Xem tất cả
-				</a>
+		<Wrapper>
+			<div ref={menuRef} className={styles.myCourseContainer}>
+				<div className={styles.myCourseHeader}>
+					<p className={styles.myCourseTitle}>Khóa học của tôi</p>
+					<a href="#!" className={styles.myCourseContainerShowAll}>
+						Xem tất cả
+					</a>
+				</div>
+				{FAKE_DATA.map((course) => {
+					return <MyCourseItem key={course.id} title={course.title} pathImg={course.pathImg} />;
+				})}
 			</div>
-			{FAKE_DATA.map((course) => {
-				return <MyCourseItem key={course.id} title={course.title} pathImg={course.pathImg} />;
-			})}
-		</div>
-		// </Wrapper>
+		</Wrapper>
 	);
 };
 export default MyCourseList;

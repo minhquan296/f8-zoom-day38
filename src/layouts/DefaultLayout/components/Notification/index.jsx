@@ -11,7 +11,7 @@ const Notification = () => {
 
 	return (
 		<div style={{ position: "relative" }}>
-			<BadgedIcon count={5} handleClick={handleClick} />
+			<BadgedIcon count={10} handleClick={handleClick} />
 
 			{isOpen && <NotificationContent onHandleClick={handleClick} />}
 		</div>

@@ -15,6 +15,7 @@ const ModalDemo = () => {
 			>
 				Open Modal
 			</button>
+			<p>lorem3000</p>
 			<Modal
 				isOpen={isModalOpen}
 				onAfterOpen={() => console.log("Modal đã mở")}

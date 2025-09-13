@@ -1,13 +1,13 @@
 import styles from "./NotificationItem.module.scss";
 
-const NotificationItem = () => {
+const NotificationItem = ({ mainContent, pathImg, updatedDays }) => {
 	return (
 		<div className={styles.notifiItemContainer}>
-			<img src="https://fullstack.edu.vn/assets/images/f8_avatar.png" alt="" className={styles.notifiItemLogo} />
+			<img src={pathImg} alt="" className={styles.notifiItemLogo} />
 			<div>
 				<div className={styles.notifiItemContent}>
-					Bài học <strong>Tóm tắt chương</strong> mới được thêm vào.
-					<p className={styles.notifiItemDays}>2 ngày trước</p>
+					{mainContent}
+					<p className={styles.notifiItemDays}>{updatedDays}</p>
 				</div>
 			</div>
 		</div>

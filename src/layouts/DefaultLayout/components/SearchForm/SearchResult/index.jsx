@@ -1,10 +1,9 @@
 import SearchResultItem from "../SearchResultItem";
 import styles from "./SearchResult.module.scss";
-// import Wrapper from "../../../../../components/Wrapper";
+import Wrapper from "../../../../../components/Wrapper";
 
 const SearchResult = () => {
 	return (
-		// <Wrapper>
 		<div className={styles.courseContainer}>
 			<div>
 				<div className={styles.courseHeader}>
@@ -63,7 +62,6 @@ const SearchResult = () => {
 				/>
 			</div>
 		</div>
-		// </Wrapper>
 	);
 };
 export default SearchResult;

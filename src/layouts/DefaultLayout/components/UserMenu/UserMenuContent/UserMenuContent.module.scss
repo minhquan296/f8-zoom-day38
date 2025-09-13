@@ -1,21 +1,11 @@
 .userMenuContainer {
-	display: flex;
-	flex-direction: column;
-	gap: 15px;
-	position: absolute;
-	top: 40px;
-	right: 0;
-	width: 230px;
-	padding: 20px;
-	background: #fff;
-	border: 2px solid #f1eeee;
-	box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
-	border-radius: 8px;
+	width: 200px;
 
 	.userMenuInfo {
 		display: flex;
 		align-items: center;
 		gap: 16px;
+		margin-bottom: 20px;
 
 		.userMenuName {
 			font-size: 16px;
