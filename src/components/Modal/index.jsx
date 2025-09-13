@@ -17,8 +17,6 @@ const Modal = ({
 	shouldCloseOnOverlayClick = false,
 	shouldCloseOnEsc = false,
 }) => {
-	console.log({ shouldCloseOnEsc });
-
 	const addModalOpenClasses = useCallback(() => {
 		document.body.classList.add(bodyOpenClassName);
 		document.documentElement.classList.add(htmlOpenClassName);
@@ -66,15 +64,24 @@ const Modal = ({
 		};
 	}, [handleClickEscape]);
 
-	if (!isOpen) return null;
+	console.log({ isOpen });
+
+	// useEffect(() => {
+	// 	const timeId = setTimeout(() => {
+	// 		if (!isOpen) {
+	// 		}
+	// 	}, closeTimeoutMS);
+	// 	return () => {
+	// 		clearTimeout(timeId);
+	// 	};
+	// }, [isOpen, closeTimeoutMS]);
+
+	if (!isOpen) {
+		return null;
+	}
 
 	return (
-		<div
-			className={classNames(styles.modalOverlay, overlayClassName, {
-				[styles.close]: !isOpen,
-			})}
-			onClick={handleClickOverlay}
-		>
+		<div className={classNames(styles.modalOverlay, overlayClassName)} onClick={handleClickOverlay}>
 			<div
 				className={classNames(styles.modalContent, className, {
 					[styles.close]: !isOpen,

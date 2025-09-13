@@ -9,7 +9,7 @@ const ModalNotClickESC = () => {
 			<button
 				className={styles.modalAction}
 				onClick={() => {
-					setIsModalOpen((prev) => !prev);
+					setIsModalOpen(true);
 				}}
 			>
 				Modal không đóng khi nhấn Esc
