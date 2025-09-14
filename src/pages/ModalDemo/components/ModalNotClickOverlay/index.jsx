@@ -27,7 +27,7 @@ const ModalNotClickOverlay = () => {
 				htmlOpenClassName="html-class"
 			>
 				<div>
-					<h1>Modal Overlay</h1>
+					<h1>Modal Lorem ipsum dolor sit.</h1>
 					<p>Hello this is Modal Overlay</p>
 				</div>
 			</Modal>

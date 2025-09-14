@@ -31,9 +31,16 @@ const NotificationContent = ({ onHandleClick }) => {
 				<div className={styles.notifiList}>
 					{/* Fake Data */}
 					<NotificationItem
-						mainContent="Sơn Đặng đã nhắc đến bạn trong một bình luận"
+						main="Sơn Đặng"
+						mainContent="đã nhắc đến bạn trong một bình luận"
 						pathImg="https://files.fullstack.edu.vn/f8-prod/user_avatars/1/64f9a2fd4e064.jpg"
 						updatedDays="10 ngày trước"
+					/>
+					<NotificationItem
+						main="Vũ Quốc Dũng"
+						mainContent="đã nhắc đến bạn trong một bình luận"
+						pathImg="https://files.fullstack.edu.vn/f8-prod/public-images/6870d57b274a2.png"
+						updatedDays="4 ngày trước"
 					/>
 				</div>
 			</div>

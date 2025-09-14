@@ -20,26 +20,6 @@ const FAKE_DATA = [
 		title: "HTML, CSS Pro",
 		pathImg: "https://files.fullstack.edu.vn/f8-prod/courses/15/62f13d2424a47.png",
 	},
-	{
-		id: uuidv4(),
-		title: "HTML, CSS Pro",
-		pathImg: "https://files.fullstack.edu.vn/f8-prod/courses/15/62f13d2424a47.png",
-	},
-	{
-		id: uuidv4(),
-		title: "HTML, CSS Pro",
-		pathImg: "https://files.fullstack.edu.vn/f8-prod/courses/15/62f13d2424a47.png",
-	},
-	{
-		id: uuidv4(),
-		title: "HTML, CSS Pro",
-		pathImg: "https://files.fullstack.edu.vn/f8-prod/courses/15/62f13d2424a47.png",
-	},
-	{
-		id: uuidv4(),
-		title: "HTML, CSS Pro",
-		pathImg: "https://files.fullstack.edu.vn/f8-prod/courses/15/62f13d2424a47.png",
-	},
 ];
 
 const MyCourseList = ({ onHandleClick }) => {

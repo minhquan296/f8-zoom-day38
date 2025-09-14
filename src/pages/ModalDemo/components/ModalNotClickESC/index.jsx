@@ -24,7 +24,7 @@ const ModalNotClickESC = () => {
 				closeTimeoutMS={300}
 			>
 				<div>
-					<h1>Modal ESC</h1>
+					<h1>Modal Lorem ipsum dolor sit.</h1>
 					<p>Hello this is Modal ESC</p>
 				</div>
 			</Modal>
