@@ -1,11 +1,17 @@
 import DataFetcher from "../../components/DataFetcher";
+import Loading from "../../components/Loading";
 
 const RenderPropsDemo = () => {
 	return (
 		<div>
 			<DataFetcher url="https://jsonplaceholder.typicode.com/posts?_limit=5">
 				{({ data, loading, error }) => {
-					if (loading) return <div>Loading posts...</div>;
+					if (loading)
+						return (
+							<div>
+								<Loading />
+							</div>
+						);
 					if (error) return <div>Error: {error}</div>;
 					return (
 						<div>
@@ -20,7 +26,12 @@ const RenderPropsDemo = () => {
 
 			<DataFetcher url="https://jsonplaceholder.typicode.com/users?_limit=5">
 				{({ data, loading, error }) => {
-					if (loading) return <div>Loading users...</div>;
+					if (loading)
+						return (
+							<div>
+								<Loading />
+							</div>
+						);
 					if (error) return <div>Error: {error}</div>;
 					return (
 						<div>
