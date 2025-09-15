@@ -1,114 +1,139 @@
 import classNames from "classnames";
 import styles from "./Modal.module.scss";
 import PropTypes from "prop-types";
-import { useCallback, useEffect, useState } from "react";
+import { forwardRef, useCallback, useEffect, useImperativeHandle, useState } from "react";
 
-const Modal = ({
-	children,
-	isOpen = false,
-	setIsModalOpen,
-	onAfterOpen = () => {},
-	onAfterClose = () => {},
-	closeTimeoutMS,
-	overlayClassName,
-	className,
-	bodyOpenClassName,
-	htmlOpenClassName,
-	shouldCloseOnOverlayClick = false,
-	shouldCloseOnEsc = false,
-}) => {
-	const [isClosing, setIsClosing] = useState(false);
+const Modal = forwardRef(
+	(
+		{
+			children,
+			isOpen = false,
+			setIsModalOpen,
+			onAfterOpen = () => {},
+			onAfterClose = () => {},
+			closeTimeoutMS,
+			overlayClassName,
+			className,
+			bodyOpenClassName,
+			htmlOpenClassName,
+			shouldCloseOnOverlayClick = false,
+			shouldCloseOnEsc = false,
+		},
+		ref
+	) => {
+		const handleClose = useCallback(() => {
+			setIsClosing(true);
+			setTimeout(() => {
+				setIsModalOpen(false);
+				setIsClosing(false);
+			}, closeTimeoutMS);
+		}, [closeTimeoutMS, setIsModalOpen]);
 
-	const handleClose = useCallback(() => {
-		setIsClosing(true);
-		setTimeout(() => {
-			setIsModalOpen(false);
-			setIsClosing(false);
-		}, closeTimeoutMS);
-	}, [closeTimeoutMS, setIsModalOpen]);
+		console.log({ isOpen });
 
-	const addModalOpenClasses = useCallback(() => {
-		document.body.classList.add(bodyOpenClassName);
-		document.documentElement.classList.add(htmlOpenClassName);
-	}, [bodyOpenClassName, htmlOpenClassName]);
+		useImperativeHandle(
+			ref,
+			() => {
+				return {
+					openModal() {
+						setIsModalOpen(true);
+					},
+					closeModal() {
+						handleClose();
+					},
+					toggleModal() {
+						setIsModalOpen(!isOpen);
+					},
+				};
+			},
+			[handleClose, setIsModalOpen, isOpen]
+		);
 
-	const removeModalOpenClasses = useCallback(() => {
-		document.body.classList.remove(bodyOpenClassName);
-		document.documentElement.classList.remove(htmlOpenClassName);
-	}, [bodyOpenClassName, htmlOpenClassName]);
+		const [isClosing, setIsClosing] = useState(false);
 
-	const handleClickEscape = useCallback(
-		(e) => {
-			if (e.code === "Escape" && shouldCloseOnEsc) {
+		const addModalOpenClasses = useCallback(() => {
+			document.body.classList.add(bodyOpenClassName);
+			document.documentElement.classList.add(htmlOpenClassName);
+		}, [bodyOpenClassName, htmlOpenClassName]);
+
+		const removeModalOpenClasses = useCallback(() => {
+			document.body.classList.remove(bodyOpenClassName);
+			document.documentElement.classList.remove(htmlOpenClassName);
+		}, [bodyOpenClassName, htmlOpenClassName]);
+
+		const handleClickEscape = useCallback(
+			(e) => {
+				if (e.code === "Escape" && shouldCloseOnEsc) {
+					return handleClose();
+				}
+			},
+			[shouldCloseOnEsc, handleClose]
+		);
+
+		const handleClickOverlay = () => {
+			if (shouldCloseOnOverlayClick) {
 				return handleClose();
 			}
-		},
-		[shouldCloseOnEsc, handleClose]
-	);
+		};
 
-	const handleClickOverlay = () => {
-		if (shouldCloseOnOverlayClick) {
-			return handleClose();
+		useEffect(() => {
+			const timeId = setTimeout(() => {
+				if (isOpen) {
+					addModalOpenClasses();
+					return onAfterOpen();
+				}
+				removeModalOpenClasses();
+				return onAfterClose();
+			}, closeTimeoutMS);
+
+			return () => {
+				clearTimeout(timeId);
+			};
+		}, [onAfterOpen, isOpen, closeTimeoutMS, onAfterClose, addModalOpenClasses, removeModalOpenClasses]);
+
+		useEffect(() => {
+			document.addEventListener("keydown", handleClickEscape);
+			return () => {
+				document.removeEventListener("keydown", handleClickEscape);
+			};
+		}, [handleClickEscape]);
+
+		if (!isOpen) {
+			return null;
 		}
-	};
 
-	useEffect(() => {
-		const timeId = setTimeout(() => {
-			if (isOpen) {
-				addModalOpenClasses();
-				return onAfterOpen();
-			}
-			removeModalOpenClasses();
-			return onAfterClose();
-		}, closeTimeoutMS);
-
-		return () => {
-			clearTimeout(timeId);
-		};
-	}, [onAfterOpen, isOpen, closeTimeoutMS, onAfterClose, addModalOpenClasses, removeModalOpenClasses]);
-
-	useEffect(() => {
-		document.addEventListener("keydown", handleClickEscape);
-		return () => {
-			document.removeEventListener("keydown", handleClickEscape);
-		};
-	}, [handleClickEscape]);
-
-	if (!isOpen) {
-		return null;
-	}
-
-	return (
-		<div
-			className={classNames(
-				styles.modalOverlay,
-				{
-					[styles.close]: isClosing,
-				},
-				overlayClassName
-			)}
-			onClick={handleClickOverlay}
-		>
+		return (
 			<div
 				className={classNames(
-					styles.modalContent,
+					styles.modalOverlay,
 					{
 						[styles.close]: isClosing,
 					},
-					className
+					overlayClassName
 				)}
-				onClick={(e) => {
-					e.stopPropagation();
-				}}
+				onClick={handleClickOverlay}
 			>
-				{children}
-				<button className={styles.modalBtn} onClick={handleClose}>
-					close
-				</button>
+				<div
+					className={classNames(
+						styles.modalContent,
+						{
+							[styles.close]: isClosing,
+						},
+						className
+					)}
+					onClick={(e) => {
+						e.stopPropagation();
+					}}
+				>
+					{children}
+					<button className={styles.modalBtn} onClick={handleClose}>
+						close
+					</button>
+				</div>
 			</div>
-		</div>
-	);
-};
+		);
+	}
+);
 
 Modal.propTypes = {
 	children: PropTypes.node,

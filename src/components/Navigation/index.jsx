@@ -16,6 +16,18 @@ const Navigation = () => {
 			<li className={styles.wrapperNavItem}>
 				<Link to="/scroll-demo">ScrollDemo</Link>
 			</li>
+			<li className={styles.wrapperNavItem}>
+				<Link to="/performance-demo">PerformanceDemo</Link>
+			</li>
+			<li className={styles.wrapperNavItem}>
+				<Link to="/focus-demo">FocusDemo</Link>
+			</li>
+			<li className={styles.wrapperNavItem}>
+				<Link to="/render-props-demo">RenderPropsDemo</Link>
+			</li>
+			<li className={styles.wrapperNavItem}>
+				<Link to="/custom-hooks-demo">CustomHooksDemo</Link>
+			</li>
 		</ul>
 	);
 };
