@@ -1,31 +1,15 @@
-import { useEffect, useRef, useState } from "react";
 import styles from "./MyCourses.module.scss";
 import MyCourseList from "./MyCourseList";
+import useOutsideClick from "../../../../hooks/useOutsideClick";
 
 const MyCourses = () => {
-	const [isOpen, setIsOpen] = useState(false);
-	const menuRef = useRef();
-
-	useEffect(() => {
-		const listener = (e) => {
-			if (!menuRef.current.contains(e.target)) {
-				setIsOpen(false);
-			}
-		};
-		document.addEventListener("mousedown", listener);
-		document.addEventListener("touchstart", listener);
-		return () => {
-			document.removeEventListener("mousedown", listener);
-			document.removeEventListener("touchstart", listener);
-		};
-	}, [setIsOpen]);
+	const { isOpen, setIsOpen, currentRef } = useOutsideClick();
 
 	return (
-		<div ref={menuRef} style={{ position: "relative" }}>
+		<div ref={currentRef} style={{ position: "relative" }}>
 			<button className={styles.myCoursesTitle} onClick={() => setIsOpen((prev) => !prev)}>
 				Khóa học của tôi
 			</button>
-
 			{isOpen && <MyCourseList setIsOpen={setIsOpen} />}
 		</div>
 	);

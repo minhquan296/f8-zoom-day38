@@ -1,19 +1,14 @@
-import { useState } from "react";
+import useOutsideClick from "../../../../hooks/useOutsideClick";
 import BadgedIcon from "./BadgedIcon";
 import NotificationContent from "./NotificationContent";
 
 const Notification = () => {
-	const [isOpen, setIsOpen] = useState(false);
-
-	const handleClick = () => {
-		setIsOpen((prev) => !prev);
-	};
+	const { isOpen, setIsOpen, currentRef } = useOutsideClick();
 
 	return (
-		<div style={{ position: "relative" }}>
-			<BadgedIcon count={10} handleClick={handleClick} />
-
-			{isOpen && <NotificationContent onHandleClick={handleClick} />}
+		<div ref={currentRef} style={{ position: "relative" }}>
+			<BadgedIcon count={10} handleClick={() => setIsOpen((prev) => !prev)} />
+			{isOpen && <NotificationContent />}
 		</div>
 	);
 };

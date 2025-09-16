@@ -1,7 +1,6 @@
 import styles from "./UserMenuContent.module.scss";
 import UserAvatar from "../UserAvatar";
 import { Link } from "react-router-dom";
-import { useEffect, useRef } from "react";
 import Wrapper from "../../../../../components/Wrapper";
 
 const USER_SETTINGS = [
@@ -37,27 +36,10 @@ const USER_SETTINGS = [
 	},
 ];
 
-const UserMenuContent = ({ onHandleClick }) => {
-	const currentRef = useRef();
-	useEffect(() => {
-		const listener = (e) => {
-			if (e.target !== currentRef.current) {
-				onHandleClick();
-			}
-		};
-
-		document.addEventListener("mousedown", listener);
-		document.addEventListener("touchstart", listener);
-
-		return () => {
-			document.removeEventListener("mousedown", listener);
-			document.removeEventListener("touchstart", listener);
-		};
-	});
-
+const UserMenuContent = () => {
 	return (
 		<Wrapper>
-			<div ref={currentRef} className={styles.userMenuContainer}>
+			<div className={styles.userMenuContainer}>
 				<div className={styles.userMenuInfo}>
 					<UserAvatar
 						width="50px"

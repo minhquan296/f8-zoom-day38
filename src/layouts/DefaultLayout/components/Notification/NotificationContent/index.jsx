@@ -1,29 +1,11 @@
-import { useEffect, useRef } from "react";
 import styles from "./NotificationContent.module.scss";
 import NotificationItem from "./NotificationItem";
 import Wrapper from "../../../../../components/Wrapper";
 
-const NotificationContent = ({ onHandleClick }) => {
-	const currentRef = useRef();
-	useEffect(() => {
-		const listener = (e) => {
-			if (e.target !== currentRef.current) {
-				onHandleClick();
-			}
-		};
-
-		document.addEventListener("mousedown", listener);
-		document.addEventListener("touchstart", listener);
-
-		return () => {
-			document.removeEventListener("mousedown", listener);
-			document.removeEventListener("touchstart", listener);
-		};
-	});
-
+const NotificationContent = () => {
 	return (
 		<Wrapper>
-			<div className={styles.notifiContainer} ref={currentRef}>
+			<div className={styles.notifiContainer}>
 				<div className={styles.notifiHeader}>
 					<h3>Thông Báo</h3>
 					<p className={styles.notifiMark}>Đánh dấu là đã đọc</p>
