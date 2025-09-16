@@ -23,6 +23,9 @@ const Navigation = () => {
 				<Link to="/focus-demo">FocusDemo</Link>
 			</li>
 			<li className={styles.wrapperNavItem}>
+				<Link to="/hoc-demo">HOCDEMO</Link>
+			</li>
+			<li className={styles.wrapperNavItem}>
 				<Link to="/render-props-demo">RenderPropsDemo</Link>
 			</li>
 			<li className={styles.wrapperNavItem}>
