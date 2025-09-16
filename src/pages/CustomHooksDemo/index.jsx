@@ -1,5 +1,4 @@
-import MyComponent from "../../components/MyComponent";
-import useToggle from "../../hooks/useToggle";
+import useToggle from "@hooks/useToggle";
 import PostListHookDemo from "./components/PostListHookDemo";
 import UserListHookDemo from "./components/UserListHookDemo";
 import styles from "./CustomHooksDemo.module.scss";
@@ -25,7 +24,7 @@ const CustomHooksDemo = () => {
 				<UserListHookDemo />
 			</div>
 			<div>
-				<button onClick={toggleTheme}>Theme</button>
+				<button onClick={toggleTheme}>Toggle Theme</button>
 			</div>
 		</div>
 	);

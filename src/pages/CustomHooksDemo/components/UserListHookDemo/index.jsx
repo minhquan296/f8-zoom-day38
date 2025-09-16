@@ -1,6 +1,6 @@
-import Loading from "../../../../components/Loading";
-import { useApi } from "../../../../hooks/useApi";
-import useToggle from "../../../../hooks/useToggle";
+import Loading from "@components/Loading";
+import { useApi } from "@hooks/useApi";
+import useToggle from "@hooks/useToggle";
 
 const UserListHookDemo = () => {
 	const { data, loading, error, refetch } = useApi("https://jsonplaceholder.typicode.com/users?_limit=10");
@@ -12,7 +12,7 @@ const UserListHookDemo = () => {
 	return (
 		<div>
 			<button onClick={refetch}>Refetch Users</button>
-			<button onClick={toggle}>Toggle</button>
+			<button onClick={toggle}>Toggle Users</button>
 
 			{isHidden && (
 				<div>

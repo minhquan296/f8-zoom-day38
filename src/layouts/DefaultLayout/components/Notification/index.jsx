@@ -1,4 +1,4 @@
-import useOutsideClick from "../../../../hooks/useOutsideClick";
+import useOutsideClick from "@hooks/useOutsideClick";
 import BadgedIcon from "./BadgedIcon";
 import NotificationContent from "./NotificationContent";
 

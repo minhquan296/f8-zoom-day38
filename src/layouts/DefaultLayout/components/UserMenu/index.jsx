@@ -1,7 +1,6 @@
-// import { useEffect, useRef, useState } from "react";
 import UserMenuContent from "./UserMenuContent";
 import UserAvatar from "./UserAvatar";
-import useOutsideClick from "../../../../hooks/useOutsideClick";
+import useOutsideClick from "@hooks/useOutsideClick";
 
 const UserMenu = () => {
 	const { isOpen, setIsOpen, currentRef } = useOutsideClick();

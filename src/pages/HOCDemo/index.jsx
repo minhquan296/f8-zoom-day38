@@ -1,5 +1,5 @@
-import UserProfile from "../../components/UserProfile";
-import ProductList from "../../components/ProductList";
+import UserProfile from "@components/UserProfile";
+import ProductList from "@components/ProductList";
 import { useState } from "react";
 
 const HOCDemo = () => {

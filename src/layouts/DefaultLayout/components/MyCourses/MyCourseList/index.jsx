@@ -1,4 +1,4 @@
-import Wrapper from "../../../../../components/Wrapper";
+import Wrapper from "@components/Wrapper";
 import MyCourseItem from "../MyCourseItem";
 import styles from "./MyCourseList.module.scss";
 import { v4 as uuidv4 } from "uuid";

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import CustomInput from "../../components/CustomInput";
+import CustomInput from "@components/CustomInput";
 
 const FocusDemo = () => {
 	const input1Ref = useRef(null);

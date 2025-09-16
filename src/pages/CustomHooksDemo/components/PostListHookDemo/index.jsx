@@ -1,6 +1,6 @@
-import Loading from "../../../../components/Loading";
-import { useApi } from "../../../../hooks/useApi";
-import useToggle from "../../../../hooks/useToggle";
+import { useApi } from "@hooks/useApi";
+import Loading from "@components/Loading";
+import useToggle from "@hooks/useToggle";
 
 const PostListHookDemo = () => {
 	const { data, loading, error, refetch } = useApi("https://jsonplaceholder.typicode.com/posts?_limit=10");
@@ -12,7 +12,7 @@ const PostListHookDemo = () => {
 	return (
 		<div>
 			<button onClick={refetch}>Refetch Posts</button>
-			<button onClick={toggle}>Toggle</button>
+			<button onClick={toggle}>Toggle Posts</button>
 			{isHidden && (
 				<div>
 					{data?.map((item) => (

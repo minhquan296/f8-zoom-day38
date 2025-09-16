@@ -1,6 +1,6 @@
+import Wrapper from "@components/Wrapper";
 import styles from "./NotificationContent.module.scss";
 import NotificationItem from "./NotificationItem";
-import Wrapper from "../../../../../components/Wrapper";
 
 const NotificationContent = () => {
 	return (

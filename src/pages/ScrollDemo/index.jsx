@@ -1,5 +1,5 @@
 import { useState } from "react";
-import GoToTop from "../../components/GoToTop";
+import GoToTop from "@components/GoToTop";
 
 const ScrollDemo = () => {
 	const [isShow, setIsShow] = useState(false);

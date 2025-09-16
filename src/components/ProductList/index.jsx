@@ -1,4 +1,4 @@
-import withLoading from "../../hoc/withLoading";
+import withLoading from "@hoc/withLoading";
 
 const ProductList = withLoading(function ProductList() {
 	const products = ["iPhone", "Samsung", "Xiaomi"];

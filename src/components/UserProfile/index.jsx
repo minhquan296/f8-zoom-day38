@@ -1,4 +1,4 @@
-import withLoading from "../../hoc/withLoading";
+import withLoading from "@hoc/withLoading";
 
 const UserProfile = withLoading(() => {
 	return (

@@ -1,5 +1,5 @@
-import DataFetcher from "../../components/DataFetcher";
-import Loading from "../../components/Loading";
+import DataFetcher from "@components/DataFetcher";
+import Loading from "@components/Loading";
 
 const RenderPropsDemo = () => {
 	return (

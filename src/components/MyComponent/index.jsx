@@ -1,4 +1,4 @@
-import { useApi } from "../../hooks/useApi";
+import { useApi } from "@hooks/useApi";
 
 function MyComponent() {
 	const { data, loading, error, refetch } = useApi("https://jsonplaceholder.typicode.com/posts");

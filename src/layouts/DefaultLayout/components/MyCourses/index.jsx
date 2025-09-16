@@ -1,6 +1,6 @@
 import styles from "./MyCourses.module.scss";
 import MyCourseList from "./MyCourseList";
-import useOutsideClick from "../../../../hooks/useOutsideClick";
+import useOutsideClick from "@hooks/useOutsideClick";
 
 const MyCourses = () => {
 	const { isOpen, setIsOpen, currentRef } = useOutsideClick();

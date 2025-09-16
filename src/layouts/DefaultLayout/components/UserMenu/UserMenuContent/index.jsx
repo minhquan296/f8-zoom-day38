@@ -1,7 +1,7 @@
 import styles from "./UserMenuContent.module.scss";
 import UserAvatar from "../UserAvatar";
 import { Link } from "react-router-dom";
-import Wrapper from "../../../../../components/Wrapper";
+import Wrapper from "@components/Wrapper";
 
 const USER_SETTINGS = [
 	{

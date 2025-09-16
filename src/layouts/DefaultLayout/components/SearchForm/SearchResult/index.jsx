@@ -1,6 +1,5 @@
 import SearchResultItem from "../SearchResultItem";
 import styles from "./SearchResult.module.scss";
-import Wrapper from "../../../../../components/Wrapper";
 
 const SearchResult = () => {
 	return (

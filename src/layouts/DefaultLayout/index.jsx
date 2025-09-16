@@ -1,8 +1,8 @@
 import { Outlet } from "react-router-dom";
 import Header from "./components/Header";
-import Navigation from "../../components/Navigation";
+import Navigation from "@components/Navigation";
 
-const DefaultLayOut = () => {
+const DefaultLayout = () => {
 	return (
 		<>
 			<Header />
@@ -11,4 +11,4 @@ const DefaultLayOut = () => {
 		</>
 	);
 };
-export default DefaultLayOut;
+export default DefaultLayout;

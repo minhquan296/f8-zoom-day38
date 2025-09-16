@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Modal from "../../../../components/Modal";
+import Modal from "@components/Modal";
 import styles from "../../ModalDemo.module.scss";
 
 const ModalNotClickOverlay = () => {
